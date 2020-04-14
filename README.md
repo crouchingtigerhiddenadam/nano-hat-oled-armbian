@@ -35,10 +35,3 @@ sudo pip install \
 ```
 python nano_hat_oled.py
 ```
-
-## Whats Next?
-
-1.) Create definition for systemd.   
-2.) Type up code documentation.   
-3.) Tidy system information screen.   
-4.) Minor adjustments to splash screen and provide alternatives.   

@@ -33,7 +33,7 @@ import time
 SCREEN_BLANK_TIMEOUT = 15
 
 current_time = time.time()
-i2c0_bus = smbus.SMBus(0)
+i2c0_bus = smbus.SMBus(0) # access to OLED
 image = Image.new('1', (128, 64))
 image_draw = ImageDraw.Draw(image)
 image_font8 = ImageFont.truetype('DejaVuSansMono.ttf', 8)
@@ -177,15 +177,15 @@ try:
         page_refresh_time = current_time + 5
         write_i2c_image_data(i2c0_bus, image)
       elif page_index == 4:
-	key1_page_index = 1
+	key1_page_index = -1
 	key2_page_index = 2
-	key3_page_index = -1
+	key3_page_index = 3
         image_draw.rectangle((0, 0, 128, 64), 0)
         image_draw.text((6, 2), 'Shutdown?', 1, image_font15)
         image_draw.rectangle((4, 36, 124, 48), 1)
         image_draw.text((6, 22), 'No',  1, image_font10)
         image_draw.text((6, 36), 'Yes', 0, image_font10)
-        image_draw.text((6, 54), 'F3: Confirm Shutdown', 1, image_font8)
+        image_draw.text((6, 54), 'F1: Confirm Shutdown', 1, image_font8)
         page_refresh_time = current_time + 5
         write_i2c_image_data(i2c0_bus, image)
 

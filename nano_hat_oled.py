@@ -25,7 +25,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 '''
 
-
 from PIL import Image, ImageDraw, ImageFont
 import smbus
 import subprocess
@@ -67,10 +66,6 @@ def write_i2c_image_data(i2c_bus, image):
         block_data = []
       x = x + 1
     page = page + 1
-
-#with open('/sys/class/gpio/unexport', 'w') as file: file.write('0\n')
-#with open('/sys/class/gpio/unexport', 'w') as file: file.write('2\n')
-#with open('/sys/class/gpio/unexport', 'w') as file: file.write('3\n')
 
 with open('/sys/class/gpio/export', 'w') as file: file.write('0\n')
 with open('/sys/class/gpio/export', 'w') as file: file.write('2\n')

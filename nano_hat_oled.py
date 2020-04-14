@@ -3,7 +3,7 @@
 
 The MIT License (MIT)
 
-NanoHAT OLED Armbian: NanoHAT OLED and GPIO Button Control for Armbian
+NanoHAT OLED for Armbian: NanoHAT OLED and GPIO Button Control for Armbian
 Copyright (C)2020 CrouchingTigerHiddenAdam @tigerhiddenadam
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,4 +1,4 @@
-# NanoHAT OLED Armbian
+# NanoHAT OLED for Armbian
 NanoHAT OLED and GPIO Button Control for Armbian.
 
 ## Getting Started

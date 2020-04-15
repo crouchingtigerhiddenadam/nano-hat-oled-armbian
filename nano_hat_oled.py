@@ -31,7 +31,7 @@ import smbus
 import subprocess
 import time
 
-SCREEN_BLANK_TIMEOUT = 15
+SCREEN_BLANK_TIMEOUT = 30
 
 current_time = time.time()
 i2c0_bus = smbus.SMBus(0) # access to OLED
@@ -46,7 +46,7 @@ key2_page_index = 2
 key3_page_index = 3
 page_index = 0
 page_refresh_time = 0
-screen_blank_time = current_time + 15
+screen_blank_time = current_time + SCREEN_BLANK_TIMEOUT
 shutdown_time = 0
 
 def write_i2c_image_data(i2c_bus, image):

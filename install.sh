@@ -10,7 +10,7 @@ apt -y install libjpeg-dev libfreetype6-dev git python python-dev \
   python-pip python-setuptools python-smbus python-wheel ttf-dejavu \
   zlib1g-dev
 
-# Install wheel, image and pillow
+# Install image and pillow
 pip install image pillow
 
 # Get the code

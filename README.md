@@ -11,40 +11,19 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-### Enable i2c0
-You can either enable the i2c0 interface using armbian-config or editing `/boot/armbianEnv.txt`.
+### Getting Started
 
-#### Method 1: Use armbian-config
+#### Enable i2c0
 ```
-sudo apt install armbian-config
+sudo apt update
+sudo apt -y install armbian-config
 sudo armbian config
 ```
 Then select `System`, `Hardware`, mark `i2c0` and `Save`.  
 Reboot the system for the changes to take effect.
 
-#### Method 2: Edit /boot/armbianEnv.txt
-```
-sudo nano /boot/armbianEnv.txt
-```
-Then add `i2c0` to the overlays line, for example if the line appears as follows:
-```
-overlays=usbhost1 usbhost2
-```
-Then add `i2c0` with a space seperating it from the other values:
-```
-overlays=i2c0 usbhost1 usbhost2
-```
-Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
-Reboot the system for the changes to take effect.
-```
-sudo reboot now
-```
-
-### Getting Started
-
 #### Install Dependences
 ```
-sudo apt update \
 sudo apt -y install \
   libjpeg-dev \
   libfreetype6-dev \
@@ -73,14 +52,14 @@ cd nano-hat-oled-armbian
 python nano_hat_oled.py
 ```
 
-### Installing (Optional)
+### Run On Startup (Optional)
 Move the files to a production directory:
 ```
 sudo mkdir /usr/share/nanohatoled
 sudo mv nano_hat_oled.py /usr/share/nanohatoled
 sudo mv splash.png /usr/share/nanohatoled
 ```
-Then edit:
+Then to edit `rc.local` type:
 ```
 sudo nano /etc/rc.local
 ```
@@ -114,6 +93,27 @@ and comment out the `oled-start` line by adding `#` at the start of the line, so
 ```
 # /usr/local/bin/oled-start
 exit 0
+```
+Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+Reboot the system for the changes to take effect.
+```
+sudo reboot now
+```
+
+## Appendix
+
+### Enable i2c0 through /boot/armbianEnv.txt
+
+```
+sudo nano /boot/armbianEnv.txt
+```
+Then add `i2c0` to the `overlays=` line, for example if the line appears as follows:
+```
+overlays=usbhost1 usbhost2
+```
+Then add `i2c0` with a space seperating it from the other values:
+```
+overlays=i2c0 usbhost1 usbhost2
 ```
 Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.

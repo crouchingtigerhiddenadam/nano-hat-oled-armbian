@@ -203,5 +203,5 @@ finally:
 
   if page_index == -1: # shutdown now if the page_index was -1
     os.system('shutdown now')
-  else
+  else:
     exit(0)

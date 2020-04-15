@@ -12,9 +12,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ### Enable i2c0
-You can either enable the i2c0 interface using armbian-config or editing `/boot/armbianEnv.txt`
+You can either enable the i2c0 interface using armbian-config or editing `/boot/armbianEnv.txt`.
 
-#### Using armbian-config
+#### Method 1: Use armbian-config
 ```
 sudo apt install armbian-config
 sudo armbian config
@@ -22,7 +22,7 @@ sudo armbian config
 Then select 'System', 'Hardware', mark 'i2c0' and 'Save'.  
 Reboot the system for the changes to take effect.
 
-#### Or; edit /boot/armbianEnv.txt
+#### Method 2: Edit /boot/armbianEnv.txt
 ```
 sudo nano /boot/armbianEnv.txt
 ```
@@ -34,7 +34,7 @@ Then add `i2c0` with a space seperating it from the other values:
 ```
 overlays=i2c0 usbhost1 usbhost2
 ```
-Then to save press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.
 ```
 sudo reboot now
@@ -63,25 +63,49 @@ sudo pip install \
 python nano_hat_oled.py
 ```
 
+## Installing
+Move the files to a production directory:
+```
+sudo mkdir /usr/share/nanohatoled
+sudo mv nano_hat_oled.py /usr/share/nanohatoled
+sudo mv splash.png /usr/share/nanohatoled
+```
+Then edit:
+```
+sudo nano /etc/rc.local
+```
+Then find the line:
+```
+exit 0
+```
+And add `cd /usr/share/nanohatoled` and `/usr/bin/python nano_hat_oled.py &` before `exit 0` so the lines look like this:
+```
+cd /usr/share/nanohatoled
+/usr/bin/python nano_hat_oled.py &
+exit 0
+```
+Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+Reboot the system for the changes to take effect.
+
 ## Troubleshooting
 
 ### Compatibility with BitBake and NanoHatOLED
-This does not require the FriendlyARM BitBake or NanoHatOLED software to be installed. If this has already been installed you will need disable it `/etc/rc.local` and reboot.
+This does not require the FriendlyARM BitBake or NanoHatOLED software to be installed. If this has already been installed you will need disable it.
 
 ```
 sudo nano /etc/rc.local
 ```
-Then find line the line:
+Then find the lines:
 ```
 /usr/local/bin/oled-start
 exit 0
 ```
-and comment out the `oled-start` line by adding `#` at the start of the line, so the line looks like this:
+and comment out the `oled-start` line by adding `#` at the start of the line, so the lines look like this:
 ```
 # /usr/local/bin/oled-start
 exit 0
 ```
-Then to save press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.
 ```
 sudo reboot now

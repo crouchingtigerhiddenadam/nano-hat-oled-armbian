@@ -27,6 +27,7 @@ Reboot the system for the changes to take effect.
 sudo apt -y install \
   libjpeg-dev \
   libfreetype6-dev \
+  git \
   python \
   python-dev \
   python-pip \
@@ -42,7 +43,6 @@ sudo pip install \
 
 #### Clone from GitHub
 ```
-sudo apt -y install git
 git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
 cd nano-hat-oled-armbian
 ```

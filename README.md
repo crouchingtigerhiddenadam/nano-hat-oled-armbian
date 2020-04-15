@@ -19,8 +19,7 @@ sudo apt update
 sudo apt -y install armbian-config
 sudo armbian config
 ```
-Then select `System`, `Hardware`, mark `i2c0` and `Save`.  
-Reboot the system for the changes to take effect.
+Select `System`, `Hardware`, mark `i2c0` and `Save`. Reboot the system for the changes to take effect.
 
 #### Install Dependences
 ```
@@ -43,6 +42,7 @@ sudo pip install \
 
 #### Clone from GitHub
 ```
+cd ~/
 git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
 cd nano-hat-oled-armbian
 ```
@@ -51,13 +51,16 @@ cd nano-hat-oled-armbian
 ```
 python nano_hat_oled.py
 ```
+Use `ctrl+c` to terminate.
 
-### Run On Startup (Optional)
-Move the files to a production directory:
+### Install
+
+#### Compile
 ```
+python -O -m py_compile nano_hat_oled.py
 sudo mkdir /usr/share/nanohatoled
-sudo mv nano_hat_oled.py /usr/share/nanohatoled
-sudo mv splash.png /usr/share/nanohatoled
+sudo mv nano_hat_oled.pyo /usr/share/nanohatoled/oled-start.pyo
+sudo cp splash.png /usr/share/nanohatoled
 ```
 Then to edit `rc.local` type:
 ```
@@ -67,10 +70,10 @@ Then find the line:
 ```
 exit 0
 ```
-And add `cd /usr/share/nanohatoled` and `/usr/bin/nice /usr/bin/python nano_hat_oled.py &` before `exit 0` so the lines look like this:
+And add `cd /usr/share/nanohatoled` and `/usr/bin/nice /usr/bin/python oled-start.pyo &` before `exit 0` so the lines look like this:
 ```
 cd /usr/share/nanohatoled
-/usr/bin/nice -n 19 /usr/bin/python nano_hat_oled.py &
+/usr/bin/nice -n 19 /usr/bin/python oled-start.pyo &
 exit 0
 ```
 Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
@@ -103,7 +106,6 @@ sudo reboot now
 ## Appendix
 
 ### Enable i2c0 through /boot/armbianEnv.txt
-
 ```
 sudo nano /boot/armbianEnv.txt
 ```

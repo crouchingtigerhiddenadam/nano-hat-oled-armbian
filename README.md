@@ -41,7 +41,7 @@ sudo apt -y install \
 And install `wheels`, `image` and `pillow` from PIP:
 ```
 sudo pip install \
-  wheels \
+  wheel \
   image \
   pillow
 ```

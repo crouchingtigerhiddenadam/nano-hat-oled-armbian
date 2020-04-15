@@ -83,8 +83,7 @@ exit 0
 ```
 And add `cd /usr/share/nanohatoled` and `/usr/bin/nice /usr/bin/python -n 10 oled-start.pyo &` before `exit 0` so the lines look like this:
 ```
-cd /usr/share/nanohatoled
-/usr/bin/nice -n 10 /usr/bin/python oled-start.pyo &
+cd /usr/share/nanohatoled && /usr/bin/nice -n 10 /usr/bin/python oled-start.pyo &
 exit 0
 ```
 Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   

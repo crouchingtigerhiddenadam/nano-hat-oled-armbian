@@ -54,6 +54,7 @@ cd nano-hat-oled-armbian
 
 Run the code (optional):
 ```
+cd /tmp/nano-hat-oled-armbian
 python oled-start.py
 ```
 Use `ctrl+c` to terminate.
@@ -61,6 +62,7 @@ Use `ctrl+c` to terminate.
 ### Install
 Compile the code:
 ```
+cd /tmp/nano-hat-oled-armbian
 python -O -m py_compile oled-start.py
 ```
 Make the program directory:
@@ -69,8 +71,8 @@ sudo mkdir /usr/share/nanohatoled
 ```
 Copy the program files:
 ```
-sudo mv oled-start.pyo /usr/share/nanohatoled/
-sudo cp splash.png /usr/share/nanohatoled/
+sudo mv /tmp/nano-hat-oled-armbian/oled-start.pyo /usr/share/nanohatoled/
+sudo cp /tmp/nano-hat-oled-armbian/splash.png /usr/share/nanohatoled/
 ```
 Edit `rc.local`:
 ```
@@ -97,7 +99,7 @@ git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
 ```
 Compile the code:
 ```
-cd nano-hat-oled-armbian
+cd /tmp/nano-hat-oled-armbian
 python -O -m py_compile oled-start.py
 ```
 Remove files from the previous version:
@@ -106,8 +108,8 @@ sudo rm /usr/share/nanohatoled/*
 ```
 Copy the lastest version into place:
 ```
-sudo mv oled-start.pyo /usr/share/nanohatoled/
-sudo cp splash.png /usr/share/nanohatoled/
+sudo mv /tmp/nano-hat-oled-armbian/oled-start.pyo /usr/share/nanohatoled/
+sudo cp /tmp/nano-hat-oled-armbian/splash.png /usr/share/nanohatoled/
 ```
 Reboot the system for the changes to take effect.
 ```

@@ -153,11 +153,11 @@ try:
 	key1_page_index = 1
 	key2_page_index = 2
 	key3_page_index = 3
-        text1 = subprocess.check_output("top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'", shell = True)
-        text2 = subprocess.check_output("ip a show | grep -E '^\s*inet' | grep -m1 global | awk '{print $2}' | sed 's|/.*||'", shell = True)
-        text3 = subprocess.check_output("free -m | awk 'NR==2{printf \"Mem: %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'", shell = True)
-        text4 = subprocess.check_output("df -h | awk '$NF==\"/\"{printf \"Disk: %d/%dGB %s\", $3,$2,$5}'", shell = True)
-        text5 = subprocess.check_output("cat /sys/class/thermal/thermal_zone0/temp | awk '{printf \"CPU Temp %3.1fc\", $1/1000}'", shell = True)
+        text1 = subprocess.check_output("ip a show | grep -E '^\s*inet' | grep -m1 global | awk '{printf \"IPv4: %s\", $2}' | sed 's|/.*||'", shell = True)
+        text2 = subprocess.check_output("df -h | awk '$NF==\"/\"{printf \"HDD:  %d/%dGB %s\", $3,$2,$5}'", shell = True)
+        text3 = subprocess.check_output("free -m | awk 'NR==2{printf \"RAM:  %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'", shell = True)
+        text4 = subprocess.check_output("top -bn1 | grep load | awk '{printf \"Load: %.2f\", $(NF-2)}'", shell = True)
+        text5 = subprocess.check_output("cat /sys/class/thermal/thermal_zone0/temp | awk '{printf \"Temp: %3.1fc\", $1/1000}'", shell = True)
         image_draw.rectangle((0, 0, 128, 64), 0)
         image_draw.text((6,  2), text1, 1, image_font10)
         image_draw.text((6, 14), text2, 1, image_font10)

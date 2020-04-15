@@ -98,7 +98,7 @@ try:
     0x8d, 0x14, # set charge pump on
     0xa6,       # set display normal (not inverse)
     0x20, 0x00, # set horizontal addressing mode
-    0xaf
+    0xaf        # set display on
   ])
 
   while True:

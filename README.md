@@ -49,7 +49,6 @@ Clone from GitHub:
 ```
 cd /tmp
 git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
-cd nano-hat-oled-armbian
 ```
 
 Run the code (optional):

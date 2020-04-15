@@ -23,7 +23,7 @@ sudo armbian config
 ```
 Select `System`, `Hardware`, mark `i2c0` and `Save`. Reboot the system for the changes to take effect.
 
-### Get the Code
+### Dependencies
 Install all dependences:
 ```
 sudo apt -y install \
@@ -42,7 +42,7 @@ sudo pip install \
   image \
   pillow
 ```
-
+### Get the Code
 Clone from GitHub:
 ```
 cd /tmp
@@ -50,7 +50,7 @@ git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
 cd nano-hat-oled-armbian
 ```
 
-Run the code:
+Run the code (optional):
 ```
 python nano_hat_oled.py
 ```

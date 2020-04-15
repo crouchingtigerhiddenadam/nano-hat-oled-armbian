@@ -19,7 +19,7 @@ You can either enable the i2c0 interface using armbian-config or editing `/boot/
 sudo apt install armbian-config
 sudo armbian config
 ```
-Then select 'System', 'Hardware', mark 'i2c0' and 'Save'.  
+Then select `System`, `Hardware`, mark `i2c0` and `Save`.  
 Reboot the system for the changes to take effect.
 
 #### Method 2: Edit /boot/armbianEnv.txt

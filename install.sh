@@ -7,10 +7,11 @@ fi
 
 # Get dependencies from APT
 apt -y install libjpeg-dev libfreetype6-dev git python python-dev \
-  python-pip python-setuptools python-smbus ttf-dejavu zlib1g-dev
+  python-pip python-setuptools python-smbus python-wheel ttf-dejavu \
+  zlib1g-dev
 
 # Install wheel, image and pillow
-pip install wheel image pillow
+pip install image pillow
 
 # Get the code
 if [ -d "/tmp/nano-hat-oled-armbian" ]

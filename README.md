@@ -100,7 +100,7 @@ Reboot the system for the changes to take effect.
 ## Troubleshooting
 
 ### Compatibility with BakeBit and NanoHatOLED
-This does not require the FriendlyARM BitBake or NanoHatOLED software to be installed. If this has already been installed you will need disable it.
+This does not require the FriendlyARM BakeBit or NanoHatOLED software to be installed. If this has already been installed you will need disable it.
 
 ```
 sudo nano /etc/rc.local

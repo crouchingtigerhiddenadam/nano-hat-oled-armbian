@@ -40,9 +40,12 @@ Reboot the system for the changes to take effect.
 sudo reboot now
 ```
 
-### Install Dependences
+### Getting Started
+
+#### Install Dependences
 ```
-sudo apt install \
+sudo apt update \
+sudo apt -y install \
   libjpeg-dev \
   libfreetype6-dev \
   python \
@@ -58,12 +61,19 @@ sudo pip install \
   pillow
 ```
 
-### Running
+#### Clone from GitHub
+```
+sudo apt -y install git
+git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
+cd nano-hat-oled-armbian
+```
+
+#### Running
 ```
 python nano_hat_oled.py
 ```
 
-## Installing
+### Installing (Optional)
 Move the files to a production directory:
 ```
 sudo mkdir /usr/share/nanohatoled

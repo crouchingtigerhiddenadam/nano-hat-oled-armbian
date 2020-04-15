@@ -14,7 +14,7 @@ THE SOFTWARE.
 ### Enable i2c0
 You can either enable the i2c0 interface using armbian-config or editing `/boot/armbianEnv.txt`
 
-#### Either using armbian-config
+#### Using armbian-config
 ```
 sudo apt install armbian-config
 sudo armbian config
@@ -22,7 +22,7 @@ sudo armbian config
 Then select 'System', 'Hardware', mark 'i2c0' and 'Save'.  
 Reboot the system for the changes to take effect.
 
-#### Or by editing /boot/armbianEnv.txt
+#### Or; edit /boot/armbianEnv.txt
 ```
 sudo nano /boot/armbianEnv.txt
 ```
@@ -34,7 +34,7 @@ Then add `i2c0` with a space seperating it from the other values:
 ```
 overlays=i2c0 usbhost1 usbhost2
 ```
-Then to save press `ctrl+x`, `ctrl+y` and `enter`.  
+Then to save press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.
 ```
 sudo reboot now
@@ -81,7 +81,7 @@ and comment out the `oled-start` line by adding `#` at the start of the line, so
 # /usr/local/bin/oled-start
 exit 0
 ```
-Then to save press `ctrl+x`, `ctrl+y` and `enter`.  
+Then to save press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.
 ```
 sudo reboot now

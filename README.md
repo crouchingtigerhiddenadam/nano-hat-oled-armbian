@@ -13,7 +13,9 @@ THE SOFTWARE.
 
 ## Getting Started
 
-#### Enable i2c0
+### Prerequisites
+
+Enable i2c0:
 ```
 sudo apt update
 sudo apt -y install armbian-config
@@ -21,7 +23,8 @@ sudo armbian config
 ```
 Select `System`, `Hardware`, mark `i2c0` and `Save`. Reboot the system for the changes to take effect.
 
-#### Install Dependences
+### Get the Code
+Install all dependences:
 ```
 sudo apt -y install \
   libjpeg-dev \
@@ -40,23 +43,30 @@ sudo pip install \
   pillow
 ```
 
-#### Clone from GitHub
+Clone from GitHub:
 ```
 cd /tmp
 git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
 cd nano-hat-oled-armbian
 ```
 
-#### Running
+Run the code:
 ```
 python nano_hat_oled.py
 ```
 Use `ctrl+c` to terminate.
 
 ### Install
+Compile the code:
 ```
 python -O -m py_compile nano_hat_oled.py
+```
+Make the program directory:
+```
 sudo mkdir /usr/share/nanohatoled
+```
+Copy the program files:
+```
 sudo mv nano_hat_oled.pyo /usr/share/nanohatoled/oled-start.pyo
 sudo cp splash.png /usr/share/nanohatoled
 ```
@@ -78,14 +88,27 @@ Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the
 Reboot the system for the changes to take effect.
 
 ## Upgrade from Previous Versions
+Get the latest code:
 ```
 cd /tmp
 git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
+```
+Compile the code:
+```
 cd nano-hat-oled-armbian
 python -O -m py_compile nano_hat_oled.py
+```
+Remove files from the previous version:
+```
 sudo rm /usr/share/nanohatoled/*
+```
+Copy the lastest version into place:
+```
 sudo mv nano_hat_oled.pyo /usr/share/nanohatoled/oled-start.pyo
 sudo cp splash.png /usr/share/nanohatoled
+```
+Reboot the system for the changes to take effect.
+```
 sudo reboot now
 ```
 

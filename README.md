@@ -1,5 +1,5 @@
 # NanoHAT OLED for Armbian
-NanoHAT OLED and GPIO Button Control for Armbian.
+NanoHAT OLED and GPIO Button Control for Armbian. This documentation contains installation and upgrade instructions.
 
 ## Disclaimer
 
@@ -42,7 +42,7 @@ sudo pip install \
 
 #### Clone from GitHub
 ```
-cd ~/
+cd /tmp
 git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
 cd nano-hat-oled-armbian
 ```
@@ -54,15 +54,13 @@ python nano_hat_oled.py
 Use `ctrl+c` to terminate.
 
 ### Install
-
-#### Compile
 ```
 python -O -m py_compile nano_hat_oled.py
 sudo mkdir /usr/share/nanohatoled
 sudo mv nano_hat_oled.pyo /usr/share/nanohatoled/oled-start.pyo
 sudo cp splash.png /usr/share/nanohatoled
 ```
-Then to edit `rc.local` type:
+Edit `rc.local`:
 ```
 sudo nano /etc/rc.local
 ```
@@ -76,14 +74,25 @@ cd /usr/share/nanohatoled
 /usr/bin/nice -n 19 /usr/bin/python oled-start.pyo &
 exit 0
 ```
-Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.
+
+## Upgrade from Previous Versions
+```
+cd /tmp
+git clone https://github.com/crouchingtigerhiddenadam/nano-hat-oled-armbian
+cd nano-hat-oled-armbian
+python -O -m py_compile nano_hat_oled.py
+sudo rm /usr/share/nanohatoled/*
+sudo mv nano_hat_oled.pyo /usr/share/nanohatoled/oled-start.pyo
+sudo cp splash.png /usr/share/nanohatoled
+sudo reboot now
+```
 
 ## Troubleshooting
 
 ### Compatibility with BakeBit and NanoHatOLED
 This does not require the FriendlyARM BakeBit or NanoHatOLED software to be installed. If this has already been installed you will need disable it.
-
 ```
 sudo nano /etc/rc.local
 ```
@@ -92,12 +101,12 @@ Then find the lines:
 /usr/local/bin/oled-start
 exit 0
 ```
-and comment out the `oled-start` line by adding `#` at the start of the line, so the lines look like this:
+And comment out the `oled-start` line by adding `#` at the start of the line, so the lines look like this:
 ```
 # /usr/local/bin/oled-start
 exit 0
 ```
-Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.
 ```
 sudo reboot now
@@ -109,7 +118,7 @@ sudo reboot now
 ```
 sudo nano /boot/armbianEnv.txt
 ```
-Then add `i2c0` to the `overlays=` line, for example if the line appears as follows:
+Add `i2c0` to the `overlays=` line, for example if the line appears as follows:
 ```
 overlays=usbhost1 usbhost2
 ```
@@ -117,7 +126,7 @@ Then add `i2c0` with a space seperating it from the other values:
 ```
 overlays=i2c0 usbhost1 usbhost2
 ```
-Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
 Reboot the system for the changes to take effect.
 ```
 sudo reboot now

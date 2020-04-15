@@ -102,6 +102,7 @@ try:
   ])
 
   while True:
+    time.sleep(.025)
     current_time = time.time()
     with open('/sys/class/gpio/gpio0/value') as file: # poll key1 down
       if file.read(1) == '1':
@@ -189,7 +190,6 @@ try:
         image_draw.text((6, 54), 'F1: Confirm Shutdown', 1, image_font8)
         page_refresh_time = current_time + 5
         write_i2c_image_data(i2c0_bus, image)
-  time.sleep(.2)
 
 except KeyboardInterrupt:
   print(' CTRL+C detected')

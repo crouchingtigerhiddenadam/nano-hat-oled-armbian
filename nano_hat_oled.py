@@ -26,6 +26,7 @@ THE SOFTWARE.
 '''
 
 from PIL import Image, ImageDraw, ImageFont
+import os
 import smbus
 import subprocess
 import time
@@ -126,6 +127,7 @@ try:
     elif current_time > page_refresh_time:
       i2c0_bus.write_i2c_block_data(0x3c, 0x00, [0xaf]) # set display on
       if page_index == -1: # shutdown command, page index -1
+        os.system("shutdown now") 
         break
       elif page_index == 0:
         splash = Image.open('splash.png')
@@ -188,8 +190,9 @@ try:
         image_draw.text((6, 54), 'F1: Confirm Shutdown', 1, image_font8)
         page_refresh_time = current_time + 5
         write_i2c_image_data(i2c0_bus, image)
+  time.sleep(.2)
 
-except KeyboardInterrupt:                                                                                                     
+except KeyboardInterrupt:
   print(' CTRL+C detected')
 
 finally:

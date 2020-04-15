@@ -24,7 +24,7 @@ sudo armbian config
 Select `System`, `Hardware`, mark `i2c0` and `Save`. Reboot the system for the changes to take effect.
 
 ### Dependencies
-Install all dependences:
+Install the dependences from APT:
 ```
 sudo apt -y install \
   libjpeg-dev \
@@ -37,7 +37,9 @@ sudo apt -y install \
   python-smbus \
   ttf-dejavu \
   zlib1g-dev
-
+```
+And install the `image` and `pillow` from PIP:
+```
 sudo pip install \
   image \
   pillow

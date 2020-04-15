@@ -67,10 +67,10 @@ Then find the line:
 ```
 exit 0
 ```
-And add `cd /usr/share/nanohatoled` and `/usr/bin/python nano_hat_oled.py &` before `exit 0` so the lines look like this:
+And add `cd /usr/share/nanohatoled` and `/usr/bin/nice /usr/bin/python nano_hat_oled.py &` before `exit 0` so the lines look like this:
 ```
 cd /usr/share/nanohatoled
-/usr/bin/python nano_hat_oled.py &
+/usr/bin/nice /usr/bin/python nano_hat_oled.py &
 exit 0
 ```
 Then to save these changes, press `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   

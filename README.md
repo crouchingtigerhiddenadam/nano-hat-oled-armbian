@@ -35,13 +35,13 @@ sudo apt -y install \
   python-pip \
   python-setuptools \
   python-smbus \
+  python-wheel \
   ttf-dejavu \
   zlib1g-dev
 ```
-And install `wheels`, `image` and `pillow` from PIP:
+And install `image` and `pillow` from PIP:
 ```
 sudo pip install \
-  wheel \
   image \
   pillow
 ```

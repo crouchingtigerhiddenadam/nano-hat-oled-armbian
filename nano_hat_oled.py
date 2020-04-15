@@ -134,7 +134,7 @@ try:
         write_i2c_image_data(i2c0_bus, image)
         splash.close()
 	page_index = 1 # redirect to page 1
-        page_refresh_time = current_time + 5 # after 5 seconds
+        page_refresh_time = current_time + SCREEN_BLANK_TIMEOUT
       elif page_index == 1:
 	key1_page_index = 1
 	key2_page_index = 2

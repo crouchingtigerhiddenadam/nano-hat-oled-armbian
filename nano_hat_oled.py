@@ -126,8 +126,7 @@ try:
       continue
     elif current_time > page_refresh_time:
       i2c0_bus.write_i2c_block_data(0x3c, 0x00, [0xaf]) # set display on
-      if page_index == -1: # shutdown command, page index -1
-        os.system("shutdown now") 
+      if page_index == -1: # break and shutdown page_index -1
         break
       elif page_index == 0:
         splash = Image.open('splash.png')
@@ -196,7 +195,13 @@ except KeyboardInterrupt:
   print(' CTRL+C detected')
 
 finally:
+
   i2c0_bus.write_i2c_block_data(0x3c, 0x00, [0xae]) # set display off
   with open('/sys/class/gpio/unexport', 'w') as file: file.write('0\n') # release GPIO 0 (key1)
   with open('/sys/class/gpio/unexport', 'w') as file: file.write('2\n') # release GPIO 2 (key2)
   with open('/sys/class/gpio/unexport', 'w') as file: file.write('3\n') # release GPIO 3 (key3)
+
+  if page_index == -1: # shutdown now if the page_index was -1
+    os.system('shutdown now')
+  else
+    exit(0)

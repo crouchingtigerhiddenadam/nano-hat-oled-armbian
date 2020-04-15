@@ -38,9 +38,10 @@ sudo apt -y install \
   ttf-dejavu \
   zlib1g-dev
 ```
-And install `image` and `pillow` from PIP:
+And install `wheels`, `image` and `pillow` from PIP:
 ```
 sudo pip install \
+  wheels \
   image \
   pillow
 ```

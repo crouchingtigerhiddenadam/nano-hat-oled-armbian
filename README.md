@@ -165,7 +165,7 @@ sudo reboot now
    
 Enable the i2c0 either using `armbian-config` or changing `/boot/armbianEnv.txt` and reboot.   
    
-After reboot run the following command:
+After reboot, run the following command:
 ```
 sudo wget -O - \
   https://raw.githubusercontent.com/crouchingtigerhiddenadam/nano-hat-oled-armbian/master/install.sh | \

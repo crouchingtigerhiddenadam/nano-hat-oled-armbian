@@ -88,6 +88,7 @@ cd /usr/share/nanohatoled && /usr/bin/nice -n 10 /usr/bin/python oled-start.pyo 
 exit 0
 ```
 Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+   
 Reboot the system for the changes to take effect.
 
 ## Upgrade from Previous Versions
@@ -133,6 +134,7 @@ And comment out the `oled-start` line by adding `#` at the start of the line, so
 exit 0
 ```
 Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
+   
 Reboot the system for the changes to take effect.
 ```
 sudo reboot now
@@ -152,20 +154,26 @@ Then add `i2c0` with a space seperating it from the other values:
 ```
 overlays=i2c0 usbhost1 usbhost2
 ```
-Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
-Reboot the system for the changes to take effect.
+Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.  
+    
+Reboot the system for the changes to take effect:
 ```
 sudo reboot now
 ```
 
 ### Experimental Quick Install and Update
-Enable the i2c0 either using `armbian-config` or changing `/boot/armbianEnv.txt` and restart.   
+Enable the i2c0 either using `armbian-config` or changing `/boot/armbianEnv.txt` and reboot.   
    
-After restart run the following command:
+After reboot run the following command:
 ```
 sudo wget -O - \
   https://raw.githubusercontent.com/crouchingtigerhiddenadam/nano-hat-oled-armbian/master/install.sh | \
   sudo bash -
+```
+
+Reboot the system for the changes to take effect:
+```
+sudo reboot now
 ```
 
 The same command can be used to update an existing installation to the latest version.

@@ -33,6 +33,7 @@ import time
 
 DISPLAY_OFF_TIMEOUT = 30
 
+cmd_index = 0
 current_time = time.time()
 display_refresh_time = 0
 display_off_time = current_time + DISPLAY_OFF_TIMEOUT
@@ -46,7 +47,6 @@ image_font25 = ImageFont.truetype('DejaVuSansMono.ttf', 25)
 key1_cmd_index = 1
 key2_cmd_index = 2
 key3_cmd_index = 3
-cmd_index = 0
 shutdown_time = 0
 
 def write_i2c_image_data(i2c_bus, image):

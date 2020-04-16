@@ -160,12 +160,12 @@ sudo reboot now
 
 ### Experimental Quick Install and Update
 Enable the i2c0 either using `armbian-config` or changing `/boot/armbianEnv.txt` and restart.   
-Then run the following command:
+   
+After restart run the following command:
 ```
 sudo wget -O - \
   https://raw.githubusercontent.com/crouchingtigerhiddenadam/nano-hat-oled-armbian/master/install.sh | \
   sudo bash -
-sudo reboot now
 ```
 
 The same command can be used to update an existing installation to the latest version.

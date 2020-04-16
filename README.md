@@ -177,5 +177,3 @@ Reboot the system for the changes to take effect:
 ```
 sudo reboot now
 ```
-
-

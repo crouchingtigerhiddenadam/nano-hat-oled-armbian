@@ -154,7 +154,7 @@ try:
 	key2_cmd_index = 0
 	key3_cmd_index = 3
         text1 = subprocess.check_output("ip a show | grep -E '^\s*inet' | grep -m1 global | awk '{printf \"IPv4: %s\", $2}' | sed 's|/.*||'", shell = True)
-        text2 = subprocess.check_output("df -h | awk '$NF==\"/\"{printf \"card: %d/%dGB %s\", $3,$2,$5}'", shell = True)
+        text2 = subprocess.check_output("df -h | awk '$NF==\"/\"{printf \"Card: %d/%dGB %s\", $3,$2,$5}'", shell = True)
         text3 = subprocess.check_output("free -m | awk 'NR==2{printf \"RAM:  %s/%sMB %.2f%%\", $3,$2,$3*100/$2 }'", shell = True)
         text4 = subprocess.check_output("top -bn1 | grep load | awk '{printf \"Load: %.2f\", $(NF-2)}'", shell = True)
         text5 = subprocess.check_output("cat /sys/class/thermal/thermal_zone0/temp | awk '{printf \"Temp: %3.1fc\", $1/1000}'", shell = True)

@@ -203,7 +203,7 @@ finally:
   with open('/sys/class/gpio/unexport', 'w') as file: file.write('2\n') # release GPIO 2 (key2)
   with open('/sys/class/gpio/unexport', 'w') as file: file.write('3\n') # release GPIO 3 (key3)
 
-  if cmd_index == 99: # shutdown now if the  was 99
+  if cmd_index == 99: # shutdown now if the command index was 99
     os.system('shutdown now')
   else:
     exit(0)

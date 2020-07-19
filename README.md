@@ -126,7 +126,7 @@ Then find the line:
 ```
 exit 0
 ```
-If required, change `cd /usr/share/nanohatoled & /usr/bin/nice /usr/bin/python3 -n 10 oled-start.pyo &` before `exit 0` so the lines look like this:
+If required, change `cd /usr/share/nanohatoled & /usr/bin/nice /usr/bin/python -n 10 oled-start.pyo &` before `exit 0` so the lines look like this:
 ```
 cd /usr/share/nanohatoled && /usr/bin/nice -n 10 /usr/bin/python3 oled-start3.py &
 exit 0

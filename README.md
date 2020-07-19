@@ -196,7 +196,7 @@ After reboot, run the following command:
 ```
 sudo wget -O - \
   https://raw.githubusercontent.com/crouchingtigerhiddenadam/nano-hat-oled-armbian/primary/install3.sh | \
-  sudo echo -
+  sudo bash -
 ```
 The command can be used to make a fresh installation or update an existing installation to the latest version.
    

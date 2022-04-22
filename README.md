@@ -37,7 +37,8 @@ sudo apt -y install \
   python3-smbus \
   python3-wheel \
   ttf-dejavu \
-  zlib1g-dev
+  zlib1g-dev \
+  python3-libgpiod
 ```
 And install `image` and `pillow` from PIP:
 ```
@@ -69,29 +70,11 @@ Copy the program files:
 sudo mv /tmp/nano-hat-oled-armbian/oled-start3.py /usr/share/nanohatoled/
 sudo cp /tmp/nano-hat-oled-armbian/splash.png /usr/share/nanohatoled/
 ```
-Compile the code:
+Copy service file:
 ```
-python3 -O -m py_compile oled-start3.py
-```
-Edit `rc.local`:
-```
-sudo nano /etc/rc.local
-```
-Then find the line:
-```
-exit 0
-```
-And add `cd /usr/share/nanohatoled` and `/usr/bin/nice /usr/bin/python3 -n 10 oled-start3.py &` before `exit 0` so the lines look like this:
-```
-cd /usr/share/nanohatoled && /usr/bin/nice -n 10 /usr/bin/python3 oled-start3.py &
-exit 0
-```
-Save these changes by pressing `ctrl+x`, `ctrl+y` and `enter` as prompted at the bottom of the screen.   
-   
-Compile the code:
-```
-cd /tmp/nano-hat-oled-armbian
-python3 -O -m py_compile oled-start3.py
+sudo mv nanohatoled.service /etc/systemd/system
+sudo systemctl daemon-reload
+sudo systemctl enable nanohatoled.service
 ```
 Reboot the system for the changes to take effect.
 ```

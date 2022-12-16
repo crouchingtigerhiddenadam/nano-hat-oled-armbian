@@ -1,0 +1,12 @@
+[Unit]
+Description=NanoHat OLED
+After=syslog.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/share/nanohatoled
+ExecStart=/usr/share/nanohatoled/oled-start3.py
+Nice=10
+
+[Install]
+WantedBy=multi-user.target
